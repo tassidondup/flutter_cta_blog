@@ -6,17 +6,14 @@ import 'package:http/http.dart' as http;
 import 'posts.dart';
 
 class MyHomePage extends StatefulWidget {
-
   MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
-
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   void initState() {
     super.initState();
@@ -30,7 +27,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   // A function that fetch 10 latest wp posts from wp rest api
   Future<List<Posts>> fetchPosts() async {
-    http.Response response = await http.get('https://tibet.net/wp-json/wp/v2/posts');
+    http.Response response =
+        await http.get('https://tibet.net/wp-json/wp/v2/posts');
 
     if (response.statusCode == 200) {
       return parsePosts(response.body);
@@ -43,7 +41,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -63,7 +60,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-
 }
 
 class PostsList extends StatelessWidget {
@@ -80,9 +76,23 @@ class PostsList extends StatelessWidget {
           // height: double.infinity,
           child: Column(
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(posts[index].title, style: TextStyle(fontSize: 16.0, ),),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Expanded(
+                    flex: 2,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        posts[index].title,
+                        style: TextStyle(
+                          fontSize: 16.0,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Expanded(child: Image.network(posts[index].featuredImgUrl)),
+                ],
               ),
             ],
           ),

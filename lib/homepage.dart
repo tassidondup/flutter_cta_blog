@@ -76,23 +76,33 @@ class PostsList extends StatelessWidget {
           // height: double.infinity,
           child: Column(
             children: <Widget>[
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Expanded(
-                    flex: 2,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        posts[index].title,
-                        style: TextStyle(
-                          fontSize: 16.0,
+              Container(
+                // color: Colors.red,
+                margin: EdgeInsets.symmetric(vertical: 10.0,),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    // Title
+                    Expanded(
+                      flex: 2,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(8, 5, 0, 5),
+                        child: Text(
+                          posts[index].title,
+                          style: TextStyle(
+                            fontSize: 16.0,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Expanded(child: Image.network(posts[index].featuredImgUrl)),
-                ],
+                    // Featured Img
+                    Image.network(
+                      posts[index].featuredImgUrl,
+                      width: 80,
+                      height: 80,
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

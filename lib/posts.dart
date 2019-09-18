@@ -5,6 +5,7 @@ class Posts {
   final String body;
   final String featuredImgUrl;
 
+
   Posts({this.id, this.title, this.excerpt, this.body, this.featuredImgUrl});
 
   factory Posts.fromJson(Map<String, dynamic> json) {
@@ -13,7 +14,7 @@ class Posts {
         title: json['title']['rendered'] as String,
         excerpt: json['excerpt']['rendered'] as String,
         body: json['content']['rendered'] as String,
-        featuredImgUrl: json['better_featured_image']['media_details']['sizes']['thumbnail']['source_url'] as String,
+        featuredImgUrl: json['better_featured_image']['media_details']['sizes']['sidebar-project-img']['source_url'] as String,
     );
   }
 

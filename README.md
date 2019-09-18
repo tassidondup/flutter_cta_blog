@@ -1,3 +1,3 @@
 # flutter_cta_blog
 
-A new Flutter project.
+A Flutter Blog App for Central Tibetan Administration

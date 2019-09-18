@@ -6,21 +6,20 @@ import 'package:http/http.dart' as http;
 import 'posts.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
 
+  MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
+
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // var posts;
 
   @override
   void initState() {
     super.initState();
-    // getPosts();
   }
 
   // A function that converts response body into a List of Posts(object or class) as in this particular case.
@@ -44,8 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // posts = fetchPosts();
-    // print(posts);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -65,6 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+
 }
 
 class PostsList extends StatelessWidget {
@@ -83,7 +82,7 @@ class PostsList extends StatelessWidget {
             children: <Widget>[
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text('${posts[index].title}', style: TextStyle(fontSize: 16.0, ),),
+                child: Text(posts[index].title, style: TextStyle(fontSize: 16.0, ),),
               ),
             ],
           ),

@@ -78,20 +78,24 @@ class PostsList extends StatelessWidget {
             children: <Widget>[
               Container(
                 // color: Colors.red,
-                margin: EdgeInsets.symmetric(vertical: 10.0,),
+                margin: EdgeInsets.symmetric(
+                  vertical: 10.0,
+                ),
+                padding: EdgeInsets.symmetric(horizontal: 10.0),
+                // decoration: BoxDecoration(
+                //     border: Border.all(
+                //   width: 1,
+                // ),),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     // Title
                     Expanded(
                       flex: 2,
-                      child: Padding(
-                        padding: const EdgeInsets.fromLTRB(8, 5, 0, 5),
-                        child: Text(
-                          posts[index].title,
-                          style: TextStyle(
-                            fontSize: 16.0,
-                          ),
+                      child: Text(
+                        posts[index].title,
+                        style: TextStyle(
+                          fontSize: 16.0,
                         ),
                       ),
                     ),
@@ -110,4 +114,5 @@ class PostsList extends StatelessWidget {
       },
     );
   }
+  
 }
